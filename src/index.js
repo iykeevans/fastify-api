@@ -1,7 +1,13 @@
 // Require the framework and instantiate it
-const fastify = require('fastify')({
-  logger: true
-});
+const fastify = require('fastify')({ logger: true });
+
+// Require external modules
+const mongoose = require('mongoose');
+
+// Connect to DB
+mongoose.connect('mongodb://iykeevans:rosewell238@ds139934.mlab.com:39934/mycargarage')
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
 
 // Declare a route
 fastify.get('/', async (request, reply) => {
