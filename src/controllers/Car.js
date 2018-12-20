@@ -26,3 +26,13 @@ exports.getSingleCar = async (request, reply) => {
     throw boom.boomify(err);
   }
 }
+
+// Add a new car
+exports.addCar = async (request, reply) => {
+  try {
+    const car = new Car(request.body)
+    return car.save()
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+}

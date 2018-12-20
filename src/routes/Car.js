@@ -11,6 +11,12 @@ const routes = [
     method: 'GET',
     url: '/api/cars/:id',
     handler: Car.getSingleCar
+  },
+  {
+    method: 'POST',
+    url: '/api/cars',
+    handler: Car.addCar,
+    // schema: documentation.addCarSchema
   }
 ];
 
