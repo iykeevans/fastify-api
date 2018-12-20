@@ -17,6 +17,11 @@ const routes = [
     url: '/api/cars',
     handler: Car.addCar,
     // schema: documentation.addCarSchema
+  },
+  {
+    method: 'PUT',
+    url: '/api/cars/:id',
+    handler: Car.updateCar,
   }
 ];
 
