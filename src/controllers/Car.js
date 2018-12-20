@@ -46,3 +46,13 @@ exports.updateCar = async (request, reply) => {
     throw boom.boomify(err);
   }
 }
+
+// Delete a car
+exports.deleteCar = async (request, reply) => {
+  try {
+    const car = await Car.findByIdAndRemove(request.params.id);
+    return car;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+}

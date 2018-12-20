@@ -22,6 +22,11 @@ const routes = [
     method: 'PUT',
     url: '/api/cars/:id',
     handler: Car.updateCar,
+  },
+  {
+    method: 'DELETE',
+    url: '/api/cars/:id',
+    handler: Car.deleteCar,
   }
 ];
 
