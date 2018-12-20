@@ -1,0 +1,28 @@
+{
+  "name": "Fastify-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "dev": "nodemon src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iykeevans/fastify-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iykeevans/fastify-api/issues"
+  },
+  "homepage": "https://github.com/iykeevans/fastify-api#readme",
+  "dependencies": {
+    "boom": "^7.3.0",
+    "fastify": "^1.13.2",
+    "fastify-swagger": "^0.16.2",
+    "mongoose": "^5.4.0",
+    "nodemon": "^1.18.9"
+  }
+}
