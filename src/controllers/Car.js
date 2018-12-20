@@ -36,3 +36,13 @@ exports.addCar = async (request, reply) => {
     throw boom.boomify(err);
   }
 }
+
+// Update an existing car
+exports.updateCar = async (request, reply) => {
+  try {
+    const update = await Car.findByIdAndUpdate(request.params.id, request.body, { new: true });
+    return update;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+}
