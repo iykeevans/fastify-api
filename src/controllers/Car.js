@@ -16,3 +16,13 @@ exports.getCars = async (request, reply) => {
     throw boom.boomify(err);
   }
 }
+
+// Get single car by id
+exports.getSingleCar = async (request, reply) => {
+  try {
+    const car = await Car.findById(request.params.id);
+    return car;
+  } catch (err) {
+    throw boom.boomify(err);
+  }
+}
