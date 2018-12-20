@@ -4,6 +4,9 @@ const fastify = require('fastify')({ logger: true });
 // Require external modules
 const mongoose = require('mongoose');
 
+// import Routes
+const routes = require('./routes/Car');
+
 // Connect to DB
 mongoose.connect('mongodb://iykeevans:rosewell238@ds139934.mlab.com:39934/mycargarage')
   .then(() => console.log('MongoDB connected'))
@@ -13,6 +16,9 @@ mongoose.connect('mongodb://iykeevans:rosewell238@ds139934.mlab.com:39934/mycarg
 fastify.get('/', async (request, reply) => {
   return { hello: 'world' }
 });
+
+// initialize routes
+routes.forEach(route => fastify.route(route));
 
 // Run the server
 const start = async () => {
