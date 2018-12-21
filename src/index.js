@@ -32,7 +32,7 @@ routes.forEach(route => fastify.route(route));
 // Run the server
 const start = async () => {
   try {
-    await fastify.listen(3000 || process.env.PORT)
+    await fastify.listen(process.env.PORT || 3000)
     fastify.swagger()
     fastify.log.info(`server listening on ${fastify.server.address().port}`)
   } catch (err) {
