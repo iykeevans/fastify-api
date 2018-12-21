@@ -17,7 +17,7 @@ fastify.register(require('fastify-swagger'), swagger.options)
 const routes = require('./routes/Car');
 
 // Connect to DB
-mongoose.connect(process.env.DATABASE_URL)
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
