@@ -1,6 +1,9 @@
 // Require the framework and instantiate it
 const fastify = require('fastify')({ logger: true });
 
+const env = require('dotenv');
+env.config();
+
 // Require external modules
 const mongoose = require('mongoose');
 
@@ -14,7 +17,7 @@ fastify.register(require('fastify-swagger'), swagger.options)
 const routes = require('./routes/Car');
 
 // Connect to DB
-mongoose.connect('mongodb://iykeevans:rosewell238@ds139934.mlab.com:39934/mycargarage')
+mongoose.connect(process.env.DATABASE_URL)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log(err));
 
@@ -29,7 +32,7 @@ routes.forEach(route => fastify.route(route));
 // Run the server
 const start = async () => {
   try {
-    await fastify.listen(3000)
+    await fastify.listen(3000 || process.env.PORT)
     fastify.swagger()
     fastify.log.info(`server listening on ${fastify.server.address().port}`)
   } catch (err) {
